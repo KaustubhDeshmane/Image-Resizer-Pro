@@ -131,3 +131,16 @@ This project is licensed under the **MIT License**.
 ## 📬 Contact
 
 Feel free to reach out for feedback, suggestions, collaborations, or project-related discussions. Contributions, ideas, and feature requests are always welcome.
+
+---
+
+## 🤝 Contributing & Collaboration
+
+Contributions, feature requests, and bug reports are always welcome. If you'd like to improve the project, you can:
+
+* Fork the repository
+* Create a new feature branch
+* Commit your changes
+* Submit a pull request
+
+Whether it's fixing bugs, improving the UI, optimizing performance, or adding new features, every contribution is appreciated. If you're interested in collaborating on future enhancements, feel free to reach out.
