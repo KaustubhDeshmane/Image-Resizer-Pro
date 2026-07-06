@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Resizer Pro</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-blur blur1"></div>
+    <div class="bg-blur blur2"></div>
+
+    <div class="container">
+
+        <!-- Header -->
+
+        <div class="header">
+            <h1><i class="fa-solid fa-image"></i> Image Resizer Pro</h1>
+            <p>Resize your images instantly with custom dimensions or social media presets.</p>
+        </div>
+
+        <!-- Upload Area -->
+
+        <div class="upload-box" id="dropArea">
+
+            <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+
+            <h2>Drag & Drop Image</h2>
+
+            <p>or</p>
+
+            <label for="imageInput" class="browse-btn">
+                Browse Files
+            </label>
+
+            <input type="file" id="imageInput" accept="image/*" hidden>
+
+            <span class="file-name" id="fileName">
+                No Image Selected
+            </span>
+
+        </div>
+
+        <!-- Preview -->
+
+        <div class="preview-section">
+
+            <div class="preview-card">
+
+                <h3>
+                    <i class="fa-solid fa-image"></i>
+                    Original Preview
+                </h3>
+
+                <img id="previewImage" alt="Preview">
+
+            </div>
+
+            <div class="preview-card">
+
+                <h3>
+                    <i class="fa-solid fa-expand"></i>
+                    Resized Preview
+                </h3>
+
+                <canvas id="imageCanvas"></canvas>
+
+            </div>
+
+        </div>
+
+        <!-- Controls -->
+
+        <div class="controls">
+
+            <div class="input-group">
+
+                <label>
+                    Width (px)
+                </label>
+
+                <input type="number" id="widthInput" placeholder="Width">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>
+                    Height (px)
+                </label>
+
+                <input type="number" id="heightInput" placeholder="Height">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>
+                    Format
+                </label>
+
+                <select id="formatSelect">
+
+                    <option value="png">PNG</option>
+
+                    <option value="jpeg">
+                        JPG
+                    </option>
+
+                    <option value="webp">
+                        WEBP
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>
+                    Quality
+                </label>
+
+                <div class="quality-box">
+
+                    <input type="range"
+                        id="qualityRange"
+                        min="10"
+                        max="100"
+                        value="90">
+
+                    <span id="qualityValue">
+                        90%
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Aspect Ratio -->
+
+        <div class="options">
+
+            <label class="checkbox">
+
+                <input type="checkbox"
+                    id="lockAspect"
+                    checked>
+
+                <span>
+                    Maintain Aspect Ratio
+                </span>
+
+            </label>
+
+        </div>
+
+        <!-- Social Media Presets -->
+
+        <div class="preset-section">
+
+            <h2>
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                Social Media Presets
+
+            </h2>
+
+            <div class="preset-grid">
+
+                <button class="preset-btn"
+                    data-width="1080"
+                    data-height="1080">
+                    <i class="fa-brands fa-instagram"></i>
+                    Instagram
+                </button>
+
+                <button class="preset-btn"
+                    data-width="1200"
+                    data-height="630">
+                    <i class="fa-brands fa-facebook"></i>
+                    Facebook
+                </button>
+
+                <button class="preset-btn"
+                    data-width="1280"
+                    data-height="720">
+                    <i class="fa-brands fa-youtube"></i>
+                    YouTube
+                </button>
+
+                <button class="preset-btn"
+                    data-width="1200"
+                    data-height="675">
+                    <i class="fa-brands fa-x-twitter"></i>
+                    Twitter / X
+                </button>
+
+                <button class="preset-btn"
+                    data-width="1200"
+                    data-height="627">
+                    <i class="fa-brands fa-linkedin"></i>
+                    LinkedIn
+                </button>
+
+                <button class="preset-btn"
+                    data-width="1366"
+                    data-height="768">
+                    <i class="fa-solid fa-globe"></i>
+                    Website Banner
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Buttons -->
+
+        <div class="action-buttons">
+
+            <button id="resizeBtn" class="primary-btn">
+
+                <i class="fa-solid fa-expand"></i>
+
+                Resize Image
+
+            </button>
+
+            <button id="resetBtn" class="secondary-btn">
+
+                <i class="fa-solid fa-rotate-left"></i>
+
+                Reset
+
+            </button>
+
+        </div>
+
+        <!-- Statistics -->
+
+        <div class="stats">
+
+            <div class="card">
+
+                <h4>Original Size</h4>
+
+                <p id="originalSize">
+                    --
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h4>Original Resolution</h4>
+
+                <p id="originalResolution">
+                    --
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h4>New Resolution</h4>
+
+                <p id="newResolution">
+                    --
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h4>Output Format</h4>
+
+                <p id="outputFormat">
+                    PNG
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Download -->
+
+        <div class="download-section">
+
+            <a id="downloadLink"
+                class="download-btn"
+                download="resized-image.png">
+
+                <i class="fa-solid fa-download"></i>
+
+                Download Image
+
+            </a>
+
+            <p id="resizeStatus"></p>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
