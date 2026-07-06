@@ -13,6 +13,15 @@
 A modern, responsive image resizing web application built with **HTML**, **CSS**, and **JavaScript**. Resize images instantly using custom dimensions or predefined social media presets, preview changes in real time, and download high-quality resized images directly from your browser.
 
 ---
+## 🌐 Live Demo
+
+<a href="https://kaustubhdeshmane.github.io/Image-Resizer-Pro/" target="_blank">
+<img src="https://img.shields.io/badge/Live_Demo-Visit-22C55E?style=for-the-badge&logo=googlechrome&logoColor=white">
+</a>
+
+</p>
+
+---
 
 ## ✨ Features
 
